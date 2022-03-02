@@ -40,6 +40,7 @@ namespace Basket.API.Controllers
         public async Task<IActionResult> DeleteBasket(string userName)
         {
             await _repository.DeleteBasket(userName);
+            
             return Ok();
         }
 
