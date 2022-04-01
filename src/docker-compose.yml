@@ -7,6 +7,12 @@ services:
   basketdb: 
      image: redis:alpine
 
+  discountdb: 
+     image: postgres
+
+  pgadmin: 
+     image: dpage/pgadmin4
+
   rabbitmq: 
      image: rabbitmq:3-management-alpine
 
@@ -24,3 +30,5 @@ services:
 
 volumes:
   mongo_data:
+  postgres_data:
+  pgadmin_data:
