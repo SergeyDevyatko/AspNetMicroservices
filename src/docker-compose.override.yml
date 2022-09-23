@@ -1,68 +1,12 @@
 version: '3.4'
 
 services:
-  catalogdb:
-    container_name: catalogdb
-    restart: always
-    ports:
-    - "27017:27017"
-    volumes:
-    - mongo_data:/data/db 
-
-  basketdb:
-    container_name: basketdb
-    restart: always
-    ports:
-    - "6379:6379"
-
-  discountdb:
-    container_name: discountdb
-    environment:
-        - POSTGRES_USER=admin
-        - POSTGRES_PASSWORD=admin1234
-        - POSTGRES_DB=DiscountDb
-    restart: always
-    ports:
-    - "5432:5432"
-    volumes:
-    - postgres_data:/var/lib/postgresql/data/
-
-  pgadmin:
-    container_name: pgadmin
-    environment:
-        - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
-        - PGADMIN_DEFAULT_PASSWORD=admin1234
-    restart: always
-    ports:
-        - "5050:80"
-    volumes:
-    - pgadmin_data:/root/.pgadmin
- 
-
-  rabbitmq:
-    container_name: rabbitmq
-    restart: always
-    ports:
-    - "5672:5672"
-    - "15672:15672"
-
   catalog.api:
-    container_name: catalog.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
-    depends_on:
-    - catalogdb
+      - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "8000:80"
-
-  basket.api:
-    container_name: basket.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "CacheSettings:ConnectionString=basketdb:6379"
-    depends_on:
-    - basketdb
-    ports:
-      - "8001:80"
-
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.API", "Services\Di
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{72F62CA8-A888-439E-9672-BD592732DC1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Test\Catalog.API\Catalog.API.csproj", "{9DD77DA1-EDA9-4DDF-AC3A-259D341DDF9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Test\Catalog.API\Catalog.API.csproj", "{9DD77DA1-EDA9-4DDF-AC3A-259D341DDF9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
